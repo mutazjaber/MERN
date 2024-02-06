@@ -18,7 +18,8 @@ class Effect {
         this.stat =stat ;
         this.magnitude = magnitude ;
     }
-    play(target){
+    play(target ){
+        if( target instanceof Unit ) {
         if(this.stat === "resilience"){
             target.resilience += this.magnitude;
             console.log(this.name + " activated on " + 
@@ -31,8 +32,9 @@ class Effect {
             target.name + "'s " + this.stat + ", " + 
             target.name + "'s " + this.stat + " becomes => " + 
             target.power);
+        }
         } else {
-            console.log("Error: Invalid stat.");
+            throw new Error( "Target must be a unit!" );
         }
     }
 }
