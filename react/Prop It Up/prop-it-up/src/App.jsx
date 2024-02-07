@@ -5,8 +5,6 @@ import './App.css'
 import PersonCard from './components/personCard'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <PersonCard firstName={ "jane" } lastName={ "doe" } age={ 88 } hairColor={ "black" }/>
@@ -15,5 +13,4 @@ function App() {
     </>
   )
 }
-
 export default App
