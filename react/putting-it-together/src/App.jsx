@@ -5,8 +5,6 @@ import './App.css'
 import PersonCard from './component/personCard'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
     <PersonCard firstName={ "Doe" } lastName={ "Jane" } age={ 45 } hairColor={ "Black" }/>

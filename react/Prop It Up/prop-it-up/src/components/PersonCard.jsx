@@ -6,6 +6,7 @@ const PersonCard = props => {
             <h1>{props.lastName} , {firstName} </h1>
             <p>Age {age}:</p>
             <p>HairColor :{props.color} </p>
+            
         </>
 
     )
