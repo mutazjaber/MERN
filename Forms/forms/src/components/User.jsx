@@ -46,7 +46,6 @@ const User = () => {
             setPasswordError("");
         }
     };
-
     const handleConfirmPassword = (e) => {
         setConfirmPassword(e.target.value);
         if (e.target.value !== password) {
@@ -55,7 +54,6 @@ const User = () => {
             setPasswordError("");
         }
     };
-
     return (
         <>
             <div>User</div>
@@ -96,5 +94,4 @@ const User = () => {
         </>
     );
 };
-
 export default User;

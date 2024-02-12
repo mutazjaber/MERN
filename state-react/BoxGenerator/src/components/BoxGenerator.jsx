@@ -7,7 +7,6 @@ const BoxGenerator = (props) => {
   const handleColorChange = (e) => {
     setColor(e.target.value);
   };
-
   const handleSizeChange = (e) => {
     const { name, value } = e.target;
     setSize((prevSize) => ({
