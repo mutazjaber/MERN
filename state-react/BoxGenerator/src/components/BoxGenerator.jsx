@@ -3,7 +3,6 @@ import React, { useState } from "react";
 const BoxGenerator = (props) => {
   const [color, setColor] = useState("");
   const [size, setSize] = useState({ width: '', height: '' });
-
   const handleColorChange = (e) => {
     setColor(e.target.value);
   };
@@ -14,16 +13,14 @@ const BoxGenerator = (props) => {
       [name]: value
     }));
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
       const newBox = { color, size };
       props.addBox(newBox);
       setColor("");
       setSize({ width: '', height: '' });
-    
-  };
 
+  };
   return (
     <div>
       <form onSubmit={handleSubmit}>
