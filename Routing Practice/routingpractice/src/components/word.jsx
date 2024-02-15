@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 
 
-const Word = (props) => {
+const Word = () => {
     const {words,color,BGcolor} = useParams();
     return (
         <>

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 
 
-const Number = (props) => {
+const Number = () => {
     const {input} = useParams();
     return (
         <>

@@ -14,7 +14,8 @@ const  TaskForm =(props) =>{
   return ( 
   <form onSubmit={handleSubmit}>
       <p>Task Name</p>
-      <input type="text" name="task"  onChange={handleText} value={taskName}/>
+      <input type="text" name="task"  
+      onChange={handleText} value={taskName}/>
       <input type="submit" value="add"/>
     </form>)
 };
