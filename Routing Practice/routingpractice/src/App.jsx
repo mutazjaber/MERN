@@ -1,9 +1,9 @@
 import './App.css';
 import React from "react";
-import { Link, Route, Routes, useParams } from 'react-router-dom'
-import Home from "./components/home";
-import Number from "./components/number";
-import Word from "./components/word";
+import {  Route, Routes } from 'react-router-dom'
+import Home from "./components/Home";
+import Number from "./components/Number";
+import Word from "./components/Word";
 
 
 
