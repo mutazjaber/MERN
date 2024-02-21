@@ -1,6 +1,5 @@
 const { Product } = require('../models/product.model');
 
-
 module.exports.createProduct = (request, response) => {
     const { title, price, desc } = request.body;
     Product.create({
@@ -17,8 +16,7 @@ module.exports.findSingleProduct =(req ,res)=>{
     .then(product=> res.json(product))
     .catch(err => res.json(err));
 }
-
-module.exports.findAllProduct =(req ,res)=>{
+module.exports.findAllProducts =(req ,res)=>{
     Product.find()
     .then(products=> res.json(products))
     .catch(err => res.json(err));
@@ -28,11 +26,10 @@ module.exports.updateProduct = (request, response) => {
         .then(updatedProduct => response.json(updatedProduct))
         .catch(err => response.json(err))
 }
-
 module.exports.deleteProduct = (request, response) => {
     Product.deleteOne({ _id: request.params.id })
-        .then(deleteConfirmation => response.json(deleteConfirmation))
-        .catch(err => response.json(err))
+        .then(deleteConfirmation => response.json(deleteConfirmation))
+        .catch(err => response.json(err))
 }
 
 

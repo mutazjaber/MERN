@@ -3,8 +3,8 @@ import React from 'react'
 
 import './App.css'
 import { Link, Route, Routes, useParams } from 'react-router-dom'
-import Search from './assets/components/Search'
-import Display from './assets/components/Display'
+import Search from '.components/Search'
+import Display from '.components/Display'
 import { useEffect } from 'react'
 import axios from 'axios'
 

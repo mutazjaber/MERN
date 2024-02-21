@@ -18,12 +18,10 @@ const Display = (props) => {
             })
             .catch(error => {
                 console.log(error);
-                setErr("not found");
+                setErr("not Found");
             });
         setErr("")
     }, [navigate]);
-
-
     return (
         <>
             {err != "" ? <h2>{err}</h2> :

@@ -17,7 +17,6 @@ function App() {
           <Route element={<Main />} path="/products/" />
           <Route element={<Detail />} path="/product/:id" />
           <Route element={<Update />} path="/product/:id/edit" />
-
         </Routes>
       </div>
     </>

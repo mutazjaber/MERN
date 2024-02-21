@@ -23,8 +23,8 @@ const Detail = (props) => {
     return (
         <div>
             <p key={id}>Title: {product.title}</p>
-            <p key={id}>besc: {product.desc}</p>
             <p key={id} >Price: {product.price}</p>
+            <p key={id}>Desc: {product.desc}</p>
             <Link to={"/product/" + product._id + "/edit"}>
                 Edit
             </Link>
