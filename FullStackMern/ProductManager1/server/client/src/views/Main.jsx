@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Produc from './Produc';
+import Produc from '../Components/Produc';
 import axios from 'axios';
-import DisplayProducts from './DisplayProducts';
+import DisplayProducts from '../Components/DisplayProducts';
 
 const Main = (props) => {
     const [products, setProducts] = useState([]);

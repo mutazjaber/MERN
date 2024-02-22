@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
     
 const Update = (props) => {
     const { id } = useParams();
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState('');
     const [desc, setDesc] = useState('');
+    const navigate = useNavigate();
 
     
     useEffect(() => {
@@ -15,6 +17,7 @@ const Update = (props) => {
                 setTitle(res.data.title);
                 setDesc(res.data.desc);
                 setPrice(res.data.price);
+                
 
             })
     }, [id]);
@@ -25,9 +28,14 @@ const Update = (props) => {
             title,
             desc,
             price,
+
+            
         })
+        
             .then(res => console.log(res))
             .catch(err => console.error(err));
+            navigate("/products");
+            
     }
     
     return (

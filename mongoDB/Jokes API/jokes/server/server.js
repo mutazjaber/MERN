@@ -1,32 +1,13 @@
-const express = require("express");
-require('dotenv').config();
-const mongoose = require('mongoose');
+const express = require('express');
 const app = express();
-const uri = 'mongodb+srv://mutazjaber:cgwezxf4mdKhZo5f@cluster0.3jt4x43.mongodb.net/';
+require('dotenv').config();
+const port = process.env.PORT;
 
-async function connect() {
-    try {
-        await mongoose.connect(uri);
-        console.log('connected');
-    }
-    catch { (err => console.log('xxxx',err)) };
-}
-connect();
-app.listen(8000,()=>{
-    console.log("connected")
-})
+require("./config/mongoose.config.js");
 
-// const app = express();
-// require('dotenv').config();
-// const port = process.env.PORT;
+app.use(express.json(), express.urlencoded({ extended: true }));
 
-// require("./config/mongoose.config");
+const AllMyJokeRoutes = require("./routes/jokes.routs.js");
+AllMyJokeRoutes(app);
 
-// app.use(express.json(), express.urlencoded({ extended: true }));
-
-// const AllMyJokeRoutes = require("./routes/jokes.routes");
-// AllMyJokeRoutes(app);
-
-// app.listen(port, () => {
-//     console.log("helooo");
-//     console.log(`Listening on port: ${port}`)});
+app.listen(port, () => console.log(`Listening on port: ${port}`));

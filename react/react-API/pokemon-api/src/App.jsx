@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios';
 
@@ -12,10 +10,8 @@ function App() {
     //asignment 1 -----------------------------------------------------------------
     fetch("https://pokeapi.co/api/v2/pokemon")
           .then(response => {
-            // not the actual JSON response body but the entire HTTP response
             return response.json();  //we use json  method to parse the response into a JavaScript object
         }).then(response => {
-            // we now run another promise to parse the HTTP response into usable JSON
             console.log(response);
             setData(response.results);
         }).catch(err=>{

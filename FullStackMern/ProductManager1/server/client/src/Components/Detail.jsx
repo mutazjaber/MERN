@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Detail = (props) => {
     const [product, setProduct] = useState({})
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/products/' + id)
@@ -19,6 +21,8 @@ const Detail = (props) => {
                 console.log("Deleted");
             })
             .catch(err => console.error(err));
+        navigate("/products");
+
     }
     return (
         <div>
