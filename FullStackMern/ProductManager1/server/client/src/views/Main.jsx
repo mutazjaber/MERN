@@ -3,6 +3,8 @@ import Produc from '../Components/Produc';
 import axios from 'axios';
 import DisplayProducts from '../Components/DisplayProducts';
 
+
+
 const Main = (props) => {
     const [products, setProducts] = useState([]);
     const [loaded, setLoaded] = useState(false);
@@ -14,6 +16,8 @@ const Main = (props) => {
             })
             .catch(err => console.error(err));
     },[products]);
+    
+
     
     return (
         <>

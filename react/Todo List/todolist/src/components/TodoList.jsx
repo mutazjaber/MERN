@@ -10,9 +10,8 @@ const TodoList = (props) => {
         <>
             <ul >
                 {props.tasks.map((item, i) => (
-                    <li  style={{textDecoration:  item.done ? "line-through" : ""}} key={i}>
+                    <li style={{textDecoration:  item.done ? "line-through" : ""}} key={i}>
                         {item.value} 
-                    
                         <span style={{ marginLeft: '10px', marginRight: '20px' }}>{item}</span>
                         <input type="checkbox" onChange={
                             ()=>{

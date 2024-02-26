@@ -28,16 +28,11 @@ const Update = (props) => {
             title,
             desc,
             price,
-
-            
         })
-        
             .then(res => console.log(res))
             .catch(err => console.error(err));
-            navigate("/products");
-            
+            navigate("/products"); 
     }
-    
     return (
         <div>
             <h1>Update a Product</h1>
