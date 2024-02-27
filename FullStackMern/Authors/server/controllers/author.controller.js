@@ -1,24 +1,30 @@
 const { Author } = require('../models/author.model');
 
 
-
-
-module.exports = {
-    createAuthor: (request, response) => {
-        const { name } = request.body;
-        Author.create({
-            name
+module.exports.createAuthor = (request, response) => {
+    const { name } = request.body;
+    Author.create({name})
+        .then(newlyCreatedAuthor => {
+            response.json({ Author: newlyCreatedAuthor })
         })
-            .then(author => response.json(author))
-            .catch(err => response.status(400).json(err))
-    }
+        .catch(err => response.status(400).json(err))
 }
 
-module.exports.findAllAuthors =(request ,response)=>{
-    Author.find()
-        .then(author=> response.json(author))
-        .catch(err => response.json(err));
-    }
+
+// module.exports.findAllAuthors =(request ,response)=>{
+//     Author.find()
+//         .then(author=> response.json(author))
+//         .catch(err => response.json(err));
+//     }
+    module.exports.findAllAuthors =(request ,response)=>{
+        Author.find().collation({ locale: 'en', strength: 2 }).sort({ name: 1 })
+            .then((allAuthors) => {
+                response.json({ Authors: allAuthors })
+            })
+            .catch((err) => {
+                response.json(err)
+            });
+        }
 
 
 
@@ -32,10 +38,12 @@ module.exports.findSingleAuthor =(request ,response)=>{
 
 
 
+
+
 module.exports.updateAuthor = (request, response) => {
-    Author.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
-        .then(updatedAuthor => response.json(updatedAuthor))
-        .catch(err => response.json(err))
+    Author.findOneAndUpdate({_id: request.params.id}, request.body, {new:true, runValidators: true })
+        .then(updatedAuthor => response.json({Author: updatedAuthor}))
+        .catch(err => response.status(400).json(err))
 }
 
 module.exports.deleteAuthor = (request, response) => {

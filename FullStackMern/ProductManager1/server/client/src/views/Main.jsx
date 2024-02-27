@@ -15,9 +15,9 @@ const Main = (props) => {
                 setLoaded(true);
             })
             .catch(err => console.error(err));
-    },[products]);
+    },[products]);  
     
-
+    
     
     return (
         <>

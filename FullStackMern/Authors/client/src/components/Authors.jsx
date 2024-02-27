@@ -5,19 +5,21 @@ import { Typography, Button, Table, TableBody, TableCell, TableContainer, TableH
 
 const Authors = (props) => {
     const [authors , setAuthors] = useState([]);
+    const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         axios.get('http://localhost:8000/authors')
             .then(response => {
-                setAuthors(response.data);
+                setAuthors(response.data.Authors);
                 console.log(response.data);
                 console.log("authors" +authors);
+                setLoaded(true);
             })
             .catch(err => console.error(err));
     }, []);
 
     const removeFromDom = authorId => {
-        setAuthors(authors.filter(author => author._id != authorId));
+        setAuthors(authors.filter(author => author._id !== authorId));
         
     }
 
@@ -34,24 +36,25 @@ const Authors = (props) => {
 
     return (
         <>
-            <Typography variant="h4">Favorite Authors</Typography>
+            <Typography variant="h4">Favorite Authors </Typography>
             <Link to={"/authors/new"}>
                 <Button variant="contained" color="primary">
                     Add New Author
                 </Button>
             </Link>
-            <Typography variant="h6">List of Authors</Typography>
+            <Typography variant="h6">List of Authors : Sort the authors alphabetically.</Typography>
             <TableContainer component={Paper}>
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Name</TableCell>
+                            <TableCell> Author Name</TableCell>
                             <TableCell>Actions available</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {authors.map((author, index) => (
-                            <TableRow key={index}>
+                    {!loaded ? <tr><td>loading...</td></tr> :
+                        authors.map((author, index) => (
+                            <TableRow key={author._id}>
                                 <TableCell>{author.name}</TableCell>
                                 <TableCell>
                                     <Button component={Link} to={'/author/'+ author._id +'/edit'} variant="contained" color="primary">

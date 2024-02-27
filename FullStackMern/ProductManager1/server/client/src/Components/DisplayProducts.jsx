@@ -23,7 +23,6 @@ const DisplayProducts = (props) => {
             {props.products.map( (product, i) =>
                 <li key={i}>
                 <p ><Link to = {'/product/'+ product._id} >{product.title}</Link> </p>
-                
                 <button  onClick={(e)=>{deleteProduct(product._id)}}>
                     Delete
                 </button>
