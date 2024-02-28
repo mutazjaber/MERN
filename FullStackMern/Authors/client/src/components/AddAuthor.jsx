@@ -15,7 +15,7 @@ export default () => {
             name,
         })
         .then(res=>{console.log(res);
-        navigate("/authors");}) // If successful, do something with the response. 
+        navigate("/authors");}) 
         
         .catch(err=>{
             const errorResponse = err.response.data.errors; // Get the errors from err.response.data
@@ -43,10 +43,7 @@ export default () => {
                         value={name}
                         aria-describedby="nameHelp"
                         />
-                        
-                        
             </p>
-
             <input type="submit"/>
         </form>
         

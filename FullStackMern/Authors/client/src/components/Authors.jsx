@@ -6,6 +6,7 @@ import { Typography, Button, Table, TableBody, TableCell, TableContainer, TableH
 const Authors = (props) => {
     const [authors , setAuthors] = useState([]);
     const [loaded, setLoaded] = useState(false);
+    const { onSubmitProp ,name ,setName ,errors} =props ;
 
     useEffect(() => {
         axios.get('http://localhost:8000/authors')

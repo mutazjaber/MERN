@@ -55,7 +55,7 @@ const EditAuthor = () => {
     <div>
         <div>
             <h1>Update a Authors</h1>
-            <form onSubmit={updateAuthor}>
+            {/* <form onSubmit={updateAuthor}>
             {errors.map((err, index) => <p key={index}>{err}</p>)}
                 <p>
                     <label>New Name :</label><br />
@@ -66,10 +66,10 @@ const EditAuthor = () => {
                 </p>
 
                 <input type="submit" />
-            </form>
+            </form> */}
 
             {/* reusing component */}
-            {/* {idError ?
+            {idError ?
                 <>
                     <h1> Error 404 page not found</h1 >
                     <Link to={`/authors`}><button type="button" className="btn btn-lg btn-primary mt-5" >Return Home</button></Link>
@@ -77,9 +77,9 @@ const EditAuthor = () => {
                 :
                 <>
                     <h2>Update Author</h2>
-                    <AddAuthor onSubmitProp={updateAuthor} name={name} setName={setName} errors={errors} ></AddAuthor>
+                        
                 </>
-            } */}
+            }
 
         </div>
       
